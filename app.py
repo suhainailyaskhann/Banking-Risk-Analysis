@@ -17,7 +17,7 @@ with st.sidebar:
 
 # --- MAIN DASHBOARD ---
 st.title(" Banking Sector Risk & Return Dashboard")
-st.markdown("### *Interactive quantitative evaluation of asset performance.* ✨")
+st.markdown("### *Interactive quantitative evaluation of asset performance.* ")
 
 try:
     portfolio = BankPortfolio(
