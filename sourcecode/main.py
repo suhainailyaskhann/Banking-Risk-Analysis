@@ -60,7 +60,7 @@ class BankPortfolio:
         fig.patch.set_facecolor('#f8f9fa')
         
         sns.lineplot(data=cumulative_growth, ax=ax1, dashes=False, linewidth=2.5)
-        ax1.set_title('📈 Cumulative Return Over Time', fontsize=14, fontweight='bold')
+        ax1.set_title('Cumulative Return Over Time', fontsize=14, fontweight='bold')
         ax1.set_ylabel('Growth (Base 1.0)')
         
         sns.scatterplot(data=risk_return_df, x='Risk', y='Return', hue='Bank', s=200, ax=ax2, edgecolor='black')
@@ -71,7 +71,7 @@ class BankPortfolio:
                      risk_return_df['Bank'].iloc[i], 
                      horizontalalignment='left', weight='bold')
             
-        ax2.set_title('⚖️️ Risk vs. Expected Return', fontsize=14, fontweight='bold')
+        ax2.set_title('Risk vs. Expected Return', fontsize=14, fontweight='bold')
         ax2.set_xlabel('Annualized Risk (Volatility)')
         ax2.set_ylabel('Annualized Return')
         
