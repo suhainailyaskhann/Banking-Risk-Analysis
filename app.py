@@ -3,7 +3,6 @@ from sourcecode.main import BankPortfolio
 
 st.set_page_config(page_title="FinTech Risk Analyzer", layout="wide")
 
-# --- SIDEBAR: LEGEND & CREDITS ---
 with st.sidebar:
     st.header("Bank Legend")
     st.markdown("**JPM**: JPMorgan Chase & Co.")
@@ -15,13 +14,12 @@ with st.sidebar:
     st.markdown("Historical stock data retrieved from **Kaggle**.")
     st.caption("Files utilized: `JPM.csv`, `GS.csv`, `MS.csv`")
 
-# --- MAIN DASHBOARD ---
-st.title(" Banking Sector Risk & Return Dashboard")
-st.markdown("### *Interactive quantitative evaluation of asset performance.* ")
+st.title("Banking Sector Risk & Return Dashboard")
+st.markdown("### *Interactive quantitative evaluation of asset performance.*")
 
 try:
     portfolio = BankPortfolio(
-        folder_path=r"D:\PY PROJECT\bank risk analysis\datacsv", 
+        folder_path="datacsv", 
         bank_names=['JPM', 'GS', 'MS']
     )
     
@@ -32,7 +30,6 @@ try:
     latest_prices = prices_df.iloc[-1]
     prev_prices = prices_df.iloc[-2]
     
-    # Dictionary to map tickers to full names for cleaner KPI cards
     full_names = {
         'JPM': 'JPMorgan Chase',
         'GS': 'Goldman Sachs',
@@ -69,7 +66,6 @@ try:
     fig = portfolio.plot_performance_and_risk()
     st.pyplot(fig)
 
-    # --- FOOTER CREDITS ---
     st.markdown("---")
     st.caption("**Project Data Source**: Historical banking sector datasets (`JPM.csv`, `GS.csv`, `MS.csv`) provided by [Kaggle](https://www.kaggle.com/).")
 
