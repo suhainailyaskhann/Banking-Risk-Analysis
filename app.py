@@ -69,7 +69,7 @@ try:
 
     st.markdown("---")
     st.caption("**Project Data Source**: Historical banking sector datasets (`jpm.csv`, `GS.csv`, `MS.csv`) provided by [Kaggle](https://www.kaggle.com/).")
-    st.caption("By **Suhaina Ilyas Khan**)
+    st.caption("By **Suhaina Ilyas Khan**")
 
 except Exception as e:
     st.error(f"Failed to load data: {e}")
