@@ -20,7 +20,7 @@ st.markdown("### *Interactive quantitative evaluation of asset performance.*")
 try:
     portfolio = BankPortfolio(
         folder_path="datacsv", 
-        bank_names=['JPM', 'GS', 'MS']
+        bank_names=['jpm', 'GS', 'MS']
     )
     
     st.markdown("---")
