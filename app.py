@@ -12,7 +12,7 @@ with st.sidebar:
     st.markdown("---")
     st.header("Data References")
     st.markdown("Historical stock data retrieved from **Kaggle**.")
-    st.caption("Files utilized: `JPM.csv`, `GS.csv`, `MS.csv`")
+    st.caption("Files utilized: `jpm.csv`, `GS.csv`, `MS.csv`")
 
 st.title("Banking Sector Risk & Return Dashboard")
 st.markdown("### *Interactive quantitative evaluation of asset performance.*")
@@ -31,20 +31,21 @@ try:
     prev_prices = prices_df.iloc[-2]
     
     full_names = {
-        'JPM': 'JPMorgan Chase',
+        'jpm': 'JPMorgan Chase',
         'GS': 'Goldman Sachs',
         'MS': 'Morgan Stanley'
     }
     
     kpi_cols = st.columns(3)
-    for idx, bank in enumerate(['JPM', 'GS', 'MS']):
+    for idx, bank in enumerate(['jpm', 'GS', 'MS']):
         current_price = latest_prices[bank]
         delta_val = current_price - prev_prices[bank]
         delta_pct = (delta_val / prev_prices[bank]) * 100
         
         with kpi_cols[idx]:
+            display_key = bank.upper()
             st.metric(
-                label=f"{full_names[bank]} ({bank})", 
+                label=f"{full_names[bank]} ({display_key})", 
                 value=f"${current_price:.2f}", 
                 delta=f"{delta_pct:.2f}%"
             )
@@ -67,7 +68,7 @@ try:
     st.pyplot(fig)
 
     st.markdown("---")
-    st.caption("**Project Data Source**: Historical banking sector datasets (`JPM.csv`, `GS.csv`, `MS.csv`) provided by [Kaggle](https://www.kaggle.com/).")
+    st.caption("**Project Data Source**: Historical banking sector datasets (`jpm.csv`, `GS.csv`, `MS.csv`) provided by [Kaggle](https://www.kaggle.com/).")
 
 except Exception as e:
     st.error(f"Failed to load data: {e}")
